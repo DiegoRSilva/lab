@@ -10,12 +10,20 @@
 </head>
 <body>
   <div class="container">
+    <div class="">
+      <img src="../images/logo.png" class="img-responsive cabecalho" style="margin-top:5px"/>
+      <h3 style="padding-right:25px"> Hospital da Polícia Militar General Edson Ramalho</h3>
+      <h4> Laboratório de Analises Clínicas</h4><br>
+      <br>
+      <?php @include('/menu.php');?>
+    </div><br>
     <h3>Cadastro de Exame - Sumário de Urina</h3>
     <form class="form-inline" name="" method="post">
       <input type="text" class="form-control form-exames" placeholder="Código do Paciente">
       <!--Caracteres Gerais-->
       <div id="exames">
         <h3>Caracteres Gerais</h3>
+
           <input type="text" class="form-control  " placeholder="Volume" aria-describedby="basic-addon2">
           <select class="form-control">
             <option>Cor</option>
