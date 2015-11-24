@@ -1,8 +1,6 @@
 <?php
 @require 'source/database/MyslPDO.php';
 @require 'source/classes/Usuario.php';
-
-
 ?>
 <!Doctype html>
 <html lang="pt-br">
