@@ -1,6 +1,5 @@
 <?php
-@require 'source/database/MyslPDO.php';
-@require 'source/classes/Usuario.php';
+@require '../source/database/MyslPDO.php';
 
 ?>
 <!Doctype html>
@@ -34,11 +33,11 @@
           <span class="input-group-addon " id="basic-addon2">milhões/mm3</span>
         </div>
         <div class="input-group label">
-          <input type="text" class="form-control" placeholder="Hemoglobina" aria-describedby="basic-addon2">
+          <input type="text" class="form-control" placeholder="Hemoglobina" aria-describedby="basic-addon2" name="hemoglobina">
           <span class="input-group-addon" id="basic-addon2">g/dl</span>
         </div>
         <div class="input-group label">
-          <input type="text" class="form-control" placeholder="Hematocrito" aria-describedby="basic-addon2">
+          <input type="text" class="form-control" placeholder="Hematocrito" aria-describedby="basic-addon2" name="hematocrito">
           <span class="input-group-addon" id="basic-addon2">%</span>
         </div>
         <div class="input-group label">
@@ -50,13 +49,18 @@
           <span class="input-group-addon" id="basic-addon2">uu</span>
         </div>
         <div class="input-group label">
-          <input type="text" class="form-control" placeholder="C.H.C.M" aria-describedby="basic-addon2">
+          <input type="text" class="form-control" placeholder="C.H.C.M" onFocus="" aria-describedby="basic-addon2">
           <span class="input-group-addon" id="basic-addon2">%</span>
         </div>
       </div>
+
       <!--leucograma-->
       <div id="exames">
         <h3>Leucograma</h3>
+        <div class="input-group label">
+          <input type="text" class="form-control" placeholder="Leucocitos totais" aria-describedby="basic-addon2" name="leucocitosTotais">
+          <span class="input-group-addon" id="basic-addon2">u3</span>
+        </div><br>
         <div class="input-group label">
           <input type="text" class="form-control" placeholder="Leucocitos - V. Relativos" aria-describedby="basic-addon2">
           <span class="input-group-addon " id="basic-addon2">%</span>
@@ -116,5 +120,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/lab.js"></script>
 </body>
 </html>
