@@ -22,15 +22,22 @@
       <h4> Laboratório de Analises Clínicas</h4>
       <br>
       <h3>Acesso ao sistema:</h3>
-      <input type="text" placeholder="Usuário" name="usuario">
-      <input type="password" placeholder="Senha" name="senha"><Br>
-      <a href="" ><h5>Esqueci minha senha.</h5></a>
-      <input type="submit" class="btn btn-sm btn-info" value="Entrar">
-      <input type="submit" class="btn btn-sm btn-info" value="Cadastrar" onclick="pages/cadUsuario.php">
+      <form method="post" name="">
+        <input type="text" placeholder="Usuário" name="usuario">
+        <input type="password" placeholder="Senha" name="senha"><Br>
+        <a href="" ><h5>Esqueci minha senha.</h5></a>
+        <input type="submit" class="btn btn-sm btn-info" value="Entrar">
+      </form>
+      <br><input type="submit" class="btn btn-sm btn-info" value="Cadastrar">
       <?php
           if (isset($_POST['usuario'])) {
             $usuario = Usuario::instance();
             $res = $usuario->getUser($_POST['usuario'],$_POST['senha']);
+            if ($res) {
+
+            }else {
+              echo "<script>alert('Usuário encontrado. Tente novamente.')</script>";
+            }
           }
          ?>
     </div>

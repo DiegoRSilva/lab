@@ -1,6 +1,6 @@
 <?php
-@require 'source/database/MyslPDO.php';
-@require 'source/classes/Usuario.php';
+@require '../source/database/MyslPDO.php';
+@require '../source/classes/Usuario.php';
 ?>
 <!Doctype html>
 <html lang="pt-br">
@@ -25,32 +25,46 @@
     <form class="" name="" method="post">
       <!--Informações do Paciente-->
       <div class="label">
-        <input type="text" class="form-control form-exames" placeholder="Nome">
+        <input type="text" class="form-control form-exames" placeholder="Nome" name="nome">
       </div>
       <div class="label">
-        <input type="text" class="form-control form-exames" placeholder="Função">
+        <input type="text" class="form-control form-exames" placeholder="Função" name="funcao">
       </div>
       <div class="label">
-        <input type="text" class="form-control form-exames" placeholder="Email">
+        <input type="text" class="form-control form-exames" placeholder="Email" name="email">
       </div>
       <div class="label">
-        <input type="text" class="form-control form-exames" placeholder="Usuario">
+        <input type="text" class="form-control form-exames" placeholder="Usuario" name="usuario">
       </div>
       <div class="label">
-        <input type="text" class="form-control form-exames" placeholder="Senha">
+        <input type="password" class="form-control form-exames" placeholder="Senha" name="senha">
       </div>
       <div class="label">
-        <input type="text" class="form-control form-exames" placeholder="Repetir Senha">
+        <input type="password" class="form-control form-exames" placeholder="Repetir Senha" name="re-senha">
       </div>
-      <br><button class="btn btn-sm btn-info">Cadastrar</button>
+      <br><button class="btn btn-sm btn-info" onclick="return validaruser()">Cadastrar</button>
     </form>
   </div>
 
-
+  <?php
+    if (isset($_POST['usuario'])) {
+        if ($_POST['nome'] != null && $_POST['funcao'] != null && $_POST['email'] != null && $_POST['usuario'] != null && $_POST['senha'] != null) {
+        $objUsuario = Usuario::instance();
+        $senha = md5($_POST['senha']);
+        $objUsuario->insertUser(array($_POST['nome'],$_POST['funcao'],$_POST['email'] ,$_POST['usuario'] ,$senha));
+        if ($objUsuario) {
+          echo "<script>alert('Usuário cadastrado.')</script>";
+        }
+      }else {
+        echo "<script>alert('Usuário não cadastrado.')</script>";
+      }
+    }
+   ?>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/validaformulario.js"></script>
 </body>
 </html>

@@ -23,9 +23,9 @@
                 $stmt = self::$_db->prepare('INSERT INTO usuario(nome,funcao,email,usuario,senha) VALUES (upper(?),upper(?),upper(?),upper(?),upper(?))');
                 return $stmt->execute($dados);
         }
-        public function getUser($nomeusuario,$senha){
+        public function getUser($usuario,$senha){
                 $stmt = self::$_db->prepare('SELECT * from usuario where usuario=:usuario and senha=:senha');
-                $stmt->bindValue(":usuario", $nomeusuario,  PDO::PARAM_STR);
+                $stmt->bindValue(":usuario", $usuario,  PDO::PARAM_STR);
                 $stmt->bindValue(":senha", $senha, PDO::PARAM_STR);
                 $stmt->execute();
                 $res = $stmt->fetch(PDO::FETCH_ASSOC);
